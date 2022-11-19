@@ -11,7 +11,6 @@ USD is more than a file format; it also acts as a framework for defining 3D scen
 ## USD samples
 
 I have decided to create a sample of USD files by function.     
-Please use this for verification purposes.     
 
 ### Primitive
 
@@ -23,6 +22,7 @@ Please use this for verification purposes.
 
 |File|Material Type|Description|      
 |---|---|---|      
-|[point_light_test.usda](samples/light/point_light_test.usda)|-|Point Light with Sphere Light.<br>Use the ratio of radius to surface area to achieve the same light intensity<br>![point_light_test](samples/light/images/point_light_test.jpg)|      
+|[point_light.usda](samples/light/point_light.usda)|-|Point Light with Sphere Light.<br>Use the ratio of radius to surface area to achieve the same light intensity<br>![point_light](samples/light/images/point_light.jpg)|      
+|[spot_light.usda](samples/light/spot_light.usda)|-|Spot Light with Sphere Light.<br>Change in Cone Angle and Cone Softness.<br>![spot_light](samples/light/images/spot_light.jpg)|      
 
 ----
