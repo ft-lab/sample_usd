@@ -12,9 +12,6 @@ USD is more than a file format; it also acts as a framework for defining 3D scen
 
 I have decided to create a sample of USD files by function.     
 
-### Hierarchical structure of stage
-
-
 ### Primitive
 
 |File|Material Type|Description|      
@@ -52,5 +49,12 @@ I have decided to create a sample of USD files by function.
 |File|Material Type|Description|      
 |---|---|---|      
 |[jointTest.usda](samples/Skeleton/jointTest.usda)|OmniPBR|Skin + Joint.<br>![jointTest](samples/Skeleton/images/jointTest.jpg)|      
+
+### Reference/Payload
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[simple_mesh_sphere_reference.usda](samples/reference/simple_mesh_sphere_reference.usda)|OmniPBR|Refer to [simple_mesh_sphere_reference.usda](samples/reference/simple_mesh_sphere_reference.usda) to [simple_mesh_sphere.usda](samples/reference/simple_mesh_sphere.usda)<br>![simple_mesh_sphere_reference](samples/reference/images/simple_mesh_sphere_reference.jpg)|      
+|[simple_mesh_sphere_payload_nest.usda](samples/reference/simple_mesh_sphere_payload_nest.usda)|OmniPBR|Refer with Payload to two levels.<br>[simple_mesh_sphere_payload_nest.usda](samples/reference/simple_mesh_sphere_payload_nest.usda)<br>[simple_mesh_sphere_payload.usda](samples/reference/simple_mesh_sphere_payload.usda)<br>[simple_mesh_sphere.usda](samples/reference/simple_mesh_sphere.usda)<br>![simple_mesh_sphere_payload_nest](samples/reference/images/simple_mesh_sphere_payload.jpg)|      
 
 ----
