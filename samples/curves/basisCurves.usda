@@ -1,0 +1,93 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 50000)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (511.102131934509, 552.1829908957183, 432.5312272220388)
+                double3 target = (-16.058264578279037, -19.17303273694028, 50.88451806924547)
+            }
+            dictionary Right = {
+                double3 position = (-50000, 0, -1.1102230246251565e-11)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (-4.329780281177466e-12, 50000, 1.1102230246251565e-11)
+                double radius = 500
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        double3 xformOp:rotateXYZ = (315, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Curve1"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [10]
+        point3f[] points = [(-44.27, 0.0, 421.0), (-73.98, 0.0, 337.57),
+           (-137.75, 0, 138.70), (-29.40, 0, 135.71), (78.94, 0, 132.72),
+           (139.19, 0.0, 121.58), (151.17, 0.0, 62.65), (163.16, 0, 3.71),
+           (165.55, 0, -53.46), (110.90, 0, -116.79)]
+        uniform token type = "cubic"
+        float[] widths = [10.0] (interpolation = "constant")
+
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def BasisCurves "Curve2"
+    {
+        uniform token basis = "bezier"
+        int[] curveVertexCounts = [4, 4, 4]
+        point3f[] points = [(0.0, 0.0, 0.0), (-10.0, 100.0, 0.0), (10.0, 110.0, 0.0), (0.0, 150.0, 0.0),
+            (0.0, 0.0, 50.0), (-10.0, 100.0, 50.0), (10.0, 110.0, 50.0), (0.0, 150.0, 50.0),
+            (0.0, 0.0, 100.0), (-10.0, 100.0, 100.0), (10.0, 110.0, 100.0), (0.0, 150.0, 100.0)
+        ]
+        uniform token type = "cubic"
+        float[] widths = [20.0, 0.0, 25.0, 0.0, 30.0, 0.0] (interpolation = "varying")
+
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+
+}
+

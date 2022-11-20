@@ -1,0 +1,108 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 50000)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (952.0199396959257, 811.6506940976946, 1470.092965866834)
+                double3 target = (-8.216472973550935, 23.223708711288168, -9.688447130981558)
+            }
+            dictionary Right = {
+                double3 position = (-50000, 0, 0)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (0, 50000, 0)
+                double radius = 500
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:dynamicDiffuseGI:probeCounts" = (6, 6, 6)
+            float3 "rtx:dynamicDiffuseGI:probeGridOrigin" = (-210, -250, -10)
+            float3 "rtx:dynamicDiffuseGI:volumeSize" = (600, 440, 300)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:lightspeed:material:overrideAlbedo" = (0.5, 0.5, 0.5)
+            float3 "rtx:lightspeed:material:overrideEmissiveColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        double3 xformOp:rotateXYZ = (315, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Xform "trees"
+    {
+        def PointInstancer "pointInstancer"
+        {
+            quath[] orientations = [(0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0)]
+            point3f[] positions = [(344.42184, 0, 257.9544), (-241.08325, 0, 11.274721), (283.79858, 0, -196.68727), (83.38204, 0, 408.11288), (-218.16216, 0, 255.8042), (-249.49365, 0, 409.74625), (310.21722, 0, 402.16595), (229.83174, 0, 398.8383), (-27.857285, 0, -399.2988), (110.88697, 0, 413.01105), (-22.990223, 0, 365.30994), (305.02783, 0, 48.699303), (219.70468, 0, -101.17646), (168.1532, 0, -498.85718), (367.60278, 0, -256.0891), (370.47122, 0, -308.93292), (-261.38406, 0, 467.54025), (-52.03043, 0, -419.55417), (7.9406424, 0, 432.83383), (51.267246, 0, 206.56142), (314.46686, 0, 40.283607), (103.18563, 0, 87.617065), (96.286865, 0, -115.098854), (-209.6705, 0, -310.60867), (112.77318, 0, 156.6594), (-410.17563, 0, 257.6039), (423.381, 0, 342.46024), (423.08243, 0, 40.599926), (205.2834, 0, -224.36588), (349.48596, 0, 395.03897), (449.76486, 0, 79.69501), (160.24538, 0, 496.25784), (293.32507, 0, -417.627), (-13.555798, 0, 130.14734), (-256.9644, 0, 231.48923), (-279.53946, 0, 294.58298), (315.9131, 0, -399.3925), (197.67064, 0, -454.76593), (410.01602, 0, 34.197968), (-473.3032, 0, 134.99991), (75.95295, 0, -108.79059), (480.51666, 0, -463.60797), (461.03128, 0, -315.02805), (-289.4235, 0, 300.74658), (-477.21744, 0, -74.381165), (-240.08011, 0, -279.17072), (-149.70604, 0, -319.6821), (-460.6213, 0, -399.07877), (-300.6442, 0, -141.4447), (338.32657, 0, 418.48206)]
+            int[] protoIndices = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            prepend rel prototypes = </World/trees/pointInstancer/asset>
+            float3[] scales = [(1.0102857, 1.0102857, 1.0102857), (1.002467, 1.002467, 1.002467), (1.0382985, 1.0382985, 1.0382985), (1.0523434, 1.0523434, 1.0523434), (1.1091845, 1.1091845, 1.1091845), (1.2913927, 1.2913927, 1.2913927), (0.9550738, 0.9550738, 0.9550738), (1.141992, 1.141992, 1.141992), (1.0170859, 1.0170859, 1.0170859), (1.2833031, 1.2833031, 1.2833031), (0.9302462, 0.9302462, 0.9302462), (0.80702084, 0.80702084, 0.80702084), (1.2124225, 1.2124225, 1.2124225), (1.0467889, 1.0467889, 1.0467889), (0.9626022, 0.9626022, 0.9626022), (1.0837554, 1.0837554, 1.0837554), (1.2015897, 1.2015897, 1.2015897), (0.9600273, 0.9600273, 0.9600273), (0.8545289, 0.8545289, 0.8545289), (1.0737205, 1.0737205, 1.0737205), (1.2819192, 1.2819192, 1.2819192), (1.0224946, 1.0224946, 1.0224946), (1.0878255, 1.0878255, 1.0878255), (0.8933648, 0.8933648, 0.8933648), (1.0382655, 1.0382655, 1.0382655), (1.2383852, 1.2383852, 1.2383852), (1.2490866, 1.2490866, 1.2490866), (0.995648, 0.995648, 0.995648), (1.2058144, 1.2058144, 1.2058144), (1.0949006, 1.0949006, 1.0949006), (1.0252815, 1.0252815, 1.0252815), (1.2584707, 1.2584707, 1.2584707), (1.1063915, 1.1063915, 1.1063915), (1.2225388, 1.2225388, 1.2225388), (0.8585671, 0.8585671, 0.8585671), (0.96626806, 0.96626806, 0.96626806), (0.87317926, 0.87317926, 0.87317926), (1.086933, 1.086933, 1.086933), (1.1402946, 1.1402946, 1.1402946), (1.1031692, 1.1031692, 1.1031692), (0.98507, 0.98507, 0.98507), (0.81081825, 0.81081825, 0.81081825), (0.8619476, 0.8619476, 0.8619476), (1.2684846, 1.2684846, 1.2684846), (0.8507501, 0.8507501, 0.8507501), (1.1234629, 1.1234629, 1.1234629), (1.0518183, 1.0518183, 1.0518183), (1.2941176, 1.2941176, 1.2941176), (1.1657991, 1.1657991, 1.1657991), (0.8847123, 0.8847123, 0.8847123)]
+
+            def Xform "asset" (
+                kind = "component"
+                prepend references = @usd/simpleTree.usda@
+            )
+            {
+            }
+        }
+    }
+}
+
