@@ -12,6 +12,28 @@ USD is more than a file format; it also acts as a framework for defining 3D scen
 
 I have decided to create a sample of USD files by function.     
 
+### defaultPrim
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[not_used_defaultPrim.usda](samples/defaultPrim/not_used_defaultPrim.usda)|OmniPBR|Do not use defaultPrim<br>![use_defaultPrim](samples/defaultPrim/images/use_defaultPrim.jpg)|      
+|[use_defaultPrim.usda](samples/defaultPrim/use_defaultPrim.usda)|OmniPBR|Use of defaultPrim<br>![use_defaultPrim](samples/defaultPrim/images/use_defaultPrim.jpg)|      
+
+### Bad Behavior
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[BadBehavior.usda](samples/hierarchy/BadBehavior.usda)|OmniPBR|Scene with more than one root.<br>Also, defaultPrim is not specified.<br>![BadBehavior](samples/hierarchy/images/BadBehavior.png)|      
+
+### metersPerUnit
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[unit_test_cm.usda](samples/metersPerUnit/unit_test_cm.usda)|OmniPBR|Placement of 1 meter plane.<br>Stage unit is cm (default.metersPerUnit=0.01).<br>![unit_test_cm](samples/metersPerUnit/images/unit_test_cm.jpg)|      
+|[unit_test_m.usda](samples/metersPerUnit/unit_test_m.usda)|OmniPBR|Placement of 1 meter plane.<br>Stage unit is m (metersPerUnit=1.0).<br>![unit_test_m](samples/metersPerUnit/images/unit_test_m.jpg)|      
+|[unit_test_mm.usda](samples/metersPerUnit/unit_test_mm.usda)|OmniPBR|Placement of 1 meter plane.<br>Stage unit is mm (metersPerUnit=0.001).<br>![unit_test_mm](samples/metersPerUnit/images/unit_test_mm.jpg)|      
+
+
 ### Primitive
 
 |File|Material Type|Description|      
@@ -50,7 +72,7 @@ I have decided to create a sample of USD files by function.
 |---|---|---|      
 |[jointTest.usda](samples/Skeleton/jointTest.usda)|OmniPBR|Skin + Joint.<br>![jointTest](samples/Skeleton/images/jointTest.jpg)|      
 
-### Reference/Payload
+### Reference, Payload
 
 |File|Material Type|Description|      
 |---|---|---|      
