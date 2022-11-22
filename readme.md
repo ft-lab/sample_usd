@@ -52,6 +52,7 @@ I have decided to create a sample of USD files by function.
 |---|---|---|      
 |[point_light.usda](samples/light/point_light.usda)|-|Point Light with Sphere Light.<br>Use the ratio of radius to surface area to achieve the same light intensity<br>![point_light](samples/light/images/point_light.jpg)|      
 |[spot_light.usda](samples/light/spot_light.usda)|-|Spot Light with Sphere Light.<br>Change in Cone Angle and Cone Softness.<br>![spot_light](samples/light/images/spot_light.jpg)|      
+|[dome_light.usda](samples/light/dome_light.usda)|OmniPBR|DomeLight.<br>![dome_light](samples/light/images/dome_light.jpg)|      
 
 ### doubleSided
 
@@ -91,5 +92,7 @@ I have decided to create a sample of USD files by function.
 |---|---|---|      
 |[concave_polygons.usda](samples/TriangulationOfPolygon/concave_polygons.usda)|UsdPreviewSurface|Triangulation of polygons.<br>Below is the display in Unity.<br>![concave_polygons](samples/TriangulationOfPolygon/images/concave_polygons.jpg)<br>This sample is not correctly triangulated even with Omniverse Create 2022.3.|      
 |[easyChair_01.usdc](samples/TriangulationOfPolygon/easyChair_01.usdc)|UsdPreviewSurface|Triangulation of polygons.<br>Below is the display in Unity.<br>![easyChair_01.usdc](samples/TriangulationOfPolygon/images/easyChair_01.jpg)<br>This sample is not correctly triangulated even with Omniverse Create 2022.3.|      
+|[simpleCube.usda](samples/mesh/simpleCube.usda)|-|Mesh Cube.<br>Use faceVarying with normal and UV.<br>![simpleCube.usda](samples/mesh/images/simpleCube.jpg)|      
+|[simpleCubeSubdivision.usda](samples/mesh/simpleCubeSubdivision.usda)|-|Mesh Cube with Subdivision.<br>Use faceVarying with normal and UV.<br>![simpleCubeSubdivision.usda](samples/mesh/images/simpleCubeSubdivision.jpg)|      
 
 ----
