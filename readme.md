@@ -19,11 +19,11 @@ I have decided to create a sample of USD files by function.
 |[not_used_defaultPrim.usda](samples/defaultPrim/not_used_defaultPrim.usda)|OmniPBR|Do not use defaultPrim<br>![use_defaultPrim](samples/defaultPrim/images/use_defaultPrim.jpg)|      
 |[use_defaultPrim.usda](samples/defaultPrim/use_defaultPrim.usda)|OmniPBR|Use of defaultPrim<br>![use_defaultPrim](samples/defaultPrim/images/use_defaultPrim.jpg)|      
 
-### Bad Behavior
+### Hierarchy
 
 |File|Material Type|Description|      
 |---|---|---|      
-|[BadBehavior.usda](samples/hierarchy/BadBehavior.usda)|OmniPBR|Scene with more than one root.<br>Also, defaultPrim is not specified.<br>![BadBehavior](samples/hierarchy/images/BadBehavior.png)|      
+|[MultipleRoots.usda](samples/hierarchy/MultipleRoots.usda)|OmniPBR|Scene with more than one root.<br>Also, defaultPrim is not specified.<br>![MultipleRoots](samples/hierarchy/images/MultipleRoots.png)|      
 
 ### metersPerUnit
 
