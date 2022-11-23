@@ -60,6 +60,12 @@ I have decided to create a sample of USD files by function.
 |---|---|---|      
 |[doubleSided.usda](samples/doubleSided/doubleSided.usda)|UsdPreviewSurface|DoubleSided.<br>![doubleSided](samples/doubleSided/images/doubleSided.jpg)|      
 
+### Variant
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[VariantTest.usda](samples/variant/VariantTest.usda)|OmniPBR|Use Variant.<br>Switch chairs.<br>![VariantTest](samples/variant/images/VariantTest.jpg)<br>Shapes and textures are called from external sources.|      
+
 
 ### PointInstancer
 
@@ -90,9 +96,10 @@ I have decided to create a sample of USD files by function.
 
 |File|Material Type|Description|      
 |---|---|---|      
+|[simpleCube.usda](samples/mesh/simpleCube.usda)|-|Mesh Cube.<br>normal and UV with interpolation=faceVarying.<br>![simpleCube.usda](samples/mesh/images/simpleCube.jpg)|      
+|[simpleCubeVertex.usda](samples/mesh/simpleCubeVertex.usda)|-|Mesh Cube.<br>normal and UV with interpolation=vertex.<br>![simpleCubeVertex.usda](samples/mesh/images/simpleCubeVertex.jpg)|      
 |[concave_polygons.usda](samples/TriangulationOfPolygon/concave_polygons.usda)|UsdPreviewSurface|Triangulation of polygons.<br>Below is the display in Unity.<br>![concave_polygons](samples/TriangulationOfPolygon/images/concave_polygons.jpg)<br>This sample is not correctly triangulated even with Omniverse Create 2022.3.|      
 |[easyChair_01.usdc](samples/TriangulationOfPolygon/easyChair_01.usdc)|UsdPreviewSurface|Triangulation of polygons.<br>Below is the display in Unity.<br>![easyChair_01.usdc](samples/TriangulationOfPolygon/images/easyChair_01.jpg)<br>This sample is not correctly triangulated even with Omniverse Create 2022.3.|      
-|[simpleCube.usda](samples/mesh/simpleCube.usda)|-|Mesh Cube.<br>Use faceVarying with normal and UV.<br>![simpleCube.usda](samples/mesh/images/simpleCube.jpg)|      
 |[simpleCubeSubdivision.usda](samples/mesh/simpleCubeSubdivision.usda)|-|Mesh Cube with Subdivision.<br>Use faceVarying with normal and UV.<br>![simpleCubeSubdivision.usda](samples/mesh/images/simpleCubeSubdivision.jpg)|      
 
 ----

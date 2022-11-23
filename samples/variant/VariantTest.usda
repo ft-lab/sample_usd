@@ -1,0 +1,194 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary audioSettings = {
+            double dopplerLimit = 1
+            double dopplerScale = 1
+            double nonSpatialTimeScale = 1
+            double spatialTimeScale = 1
+            double speedOfSound = 340
+        }
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 50000)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (200.27575948865095, 137.44805740140828, 174.33041266107705)
+                double3 target = (-11.532746110510237, 29.978241530081984, -20.39351201071185)
+            }
+            dictionary Right = {
+                double3 position = (-50000, 0, -1.1102230246251565e-11)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (-4.329780281177466e-12, 50000, 1.1102230246251565e-11)
+                double radius = 500
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            token "rtx:rendermode" = "PathTracing"
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 0.009999999776482582
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token visibility = "invisible"
+        double3 xformOp:rotateXYZ = (315, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Mesh "Plane"
+    {
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 2, 3, 1]
+        rel material:binding = </World/Looks/Ash_Planks> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        normal3f[] normals = [(0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0)] (
+            interpolation = "faceVarying"
+        )
+        point3f[] points = [(-50, 0, -50), (50, 0, -50), (-50, 0, 50), (50, 0, 50)]
+        bool primvars:doNotCastShadows = 0
+        float2[] primvars:st = [(1, 0), (1, 1), (0, 1), (0, 0)] (
+            interpolation = "faceVarying"
+        )
+        uniform token subdivisionScheme = "none"
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (3, 1, 3)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Scope "Looks"
+    {
+        def Material "Ash_Planks"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/Ash_Planks/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/Ash_Planks/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/Ash_Planks/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Wood/Ash_Planks.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "Ash_Planks"
+                token outputs:out
+            }
+        }
+    }
+
+    def Xform "Chair" (
+        variants = {
+            string variantGroup = "Chair3"
+        }
+        prepend variantSets = "variantGroup"
+    )
+    {
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (75.099, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        variantSet "variantGroup" = {
+            "Chair1" {
+                def "Jennings_Chair" (
+                    instanceable = false
+                    prepend references = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/ArchVis/Residential/Furniture/DiningSets/Jennings/Jennings_Chair.usd@
+                )
+                {
+                    float3 xformOp:rotateXYZ = (-90, 90, 1.13687e-12)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (-23.8619, 0.00000694632, -0.0623225)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+            }
+            "Chair2" {
+                def "EastRural_Chair" (
+                    instanceable = false
+                    prepend references = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/ArchVis/Residential/Furniture/DiningSets/EastRural/EastRural_Chair.usd@
+                )
+                {
+                    float3 xformOp:rotateXYZ = (0, -90, -90)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (-26.3922, -0.00000831247, -1.0481)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+            }
+            "Chair3" {
+                def "Chair_Array" (
+                    instanceable = false
+                    prepend references = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/ArchVis/Residential/Furniture/Chairs/Chair_Array.usd@
+                )
+                {
+                    float3 xformOp:rotateXYZ = (-90, -0.312908, -1.13687e-13)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (-26.1256, -0.0000346822, 1.90761)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+            }
+        }
+    }
+
+    def "EastRural_Table" (
+        instanceable = false
+        prepend references = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/ArchVis/Residential/Furniture/DiningSets/EastRural/EastRural_Table.usd@
+    )
+    {
+        float3 xformOp:rotateXYZ = (-90, -0.031771, 2.84217e-14)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-51.2305, 0.0000207809, -1.70736)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+
+def "Environment"
+{
+    def DomeLight "sky_carpentry_shop_01_4k" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float intensity = 1000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus = 0
+        color3f shaping:focusTint = (0, 0, 0)
+        asset shaping:ies:file
+        float specular = 1
+        asset texture:file = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Skies/Indoor/carpentry_shop_01_4k.hdr@
+        token texture:format = "latlong"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (270, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+
