@@ -1,0 +1,76 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Xform "Cube"
+    {
+        float3 xformOp:rotateXYZ = (0, -1.0109721, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+        def Mesh "Cube"
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [3, 2, 0, 1, 3, 0, 5, 4, 2, 3, 5, 2, 7, 6, 4, 5, 7, 4, 1, 0, 6, 7, 1, 6, 5, 3, 1, 7, 5, 1, 2, 4, 6, 0, 2, 6]
+            rel material:binding = </Root/texture_mat>
+            normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(50, -50, -50), (-50, -50, -50), (50, 50, -50), (-50, 50, -50), (50, 50, 50), (-50, 50, 50), (50, -50, 50), (-50, -50, 50)]
+            texCoord2f[] primvars:st = [(1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0)] (
+                interpolation = "faceVarying"
+            )
+            uniform token subdivisionScheme = "none"
+            token ui:displayGroup = "Material Graphs"
+            token ui:displayName = "Cube"
+            int ui:order = 1024
+            token visibility = "inherited"
+            float3 xformOp:rotateXYZ = (0, -0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+    }
+
+    def Material "texture_mat"
+    {
+        token inputs:frame:stPrimvarName = "st"
+        token outputs:surface.connect = </Root/texture_mat/PBRShader.outputs:surface>
+
+        def Shader "PBRShader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (1, 1, 1)
+            color3f inputs:diffuseColor.connect = </Root/texture_mat/diffuseTexture.outputs:rgb>
+            float inputs:metallic = 0
+            float inputs:roughness = 0.45599997
+            token outputs:surface
+        }
+
+        def Shader "stReader"
+        {
+            uniform token info:id = "UsdPrimvarReader_float2"
+            token inputs:varname.connect = </Root/texture_mat.inputs:frame:stPrimvarName>
+            float2 outputs:result
+        }
+
+        def Shader "diffuseTexture"
+        {
+            uniform token info:id = "UsdUVTexture"
+            asset inputs:file = @../textures/tile_image.png@
+            token inputs:sourceColorSpace = "sRGB"
+            token inputs:st.connect = </Root/texture_mat/stReader.outputs:result>
+            token inputs:wrapS = "repeat"
+            token inputs:wrapT = "repeat"
+            float4 inputs:scale = (1.0, 0.3, 0.4, 1)
+            float4 inputs:bias = (0, 0, 0, 0)
+            float3 outputs:rgb
+        }
+    }
+}
+

@@ -102,4 +102,18 @@ I have decided to create a sample of USD files by function.
 |[easyChair_01.usdc](samples/TriangulationOfPolygon/easyChair_01.usdc)|UsdPreviewSurface|Triangulation of polygons.<br>Below is the display in Unity.<br>![easyChair_01.usdc](samples/TriangulationOfPolygon/images/easyChair_01.jpg)<br>This sample is not correctly triangulated even with Omniverse Create 2022.3.|      
 |[simpleCubeSubdivision.usda](samples/mesh/simpleCubeSubdivision.usda)|-|Mesh Cube with Subdivision.<br>Use faceVarying with normal and UV.<br>![simpleCubeSubdivision.usda](samples/mesh/images/simpleCubeSubdivision.jpg)|      
 
+### Material
+
+UsdPreviewSurface.    
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[UsdPreviewSurface.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface.usda)|usdPreviewSurface|DiffuseColor only.<br>![UsdPreviewSurface.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface.jpg)|      
+|[UsdPreviewSurface_texture.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_texture.usda)|usdPreviewSurface|DiffuseColor Texture.<br>![UsdPreviewSurface_texture.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_texture.jpg)|      
+|[UsdPreviewSurface_multiply_texture.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_multiply_texture.usda)|usdPreviewSurface|DiffuseColor multiply texture.<br>Use inputs:scale.<br>![UsdPreviewSurface_multiply_texture.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_multiply_texture.jpg)|      
+|[UsdPreviewSurface_transform.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_transform.usda)|usdPreviewSurface|DiffuseColor texture with UsdTransform2d.<br>Use inputs:translation, inputs:scale.<br>![UsdPreviewSurface_transform.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_transform.jpg)|      
+|[UsdPreviewSurface_transform_rotate.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_transform_rotate.usda)|usdPreviewSurface|DiffuseColor texture with UsdTransform2d.<br>Use inputs:translation, inputs:scale, inputs:rotation.<br>![UsdPreviewSurface_transform_rotate.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_transform_rotate.jpg)|      
+|[UsdPreviewSurface_opacity.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_opacity.usda)|usdPreviewSurface|Opacity Map<br>Use inputs:opacityThreshold.<br>![inputs:rotation.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_opacity.jpg)|      
+
+
 ----

@@ -1,0 +1,195 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary audioSettings = {
+            double dopplerLimit = 2
+            double dopplerScale = 1
+            string enableDistanceDelay = "off"
+            string enableDoppler = "off"
+            string enableInterauralDelay = "off"
+            double nonSpatialTimeScale = 1
+            double spatialTimeScale = 1
+            double speedOfSound = 340
+        }
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 50000)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (300.31903673880817, 222.54198243056018, 366.3971970126781)
+                double3 target = (75.99999533938589, 3.9035225540828833e-7, 0.0000033132965313598106)
+            }
+            dictionary Right = {
+                double3 position = (-50000, 0, -1.1102230246251565e-11)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (-4.329780281177466e-12, 50000, 1.1102230246251565e-11)
+                double radius = 500
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary renderSettings = {
+            double "rtx:hydra:points:defaultWidth" = 1
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 0.01
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (293.5064247833268, -22.63798581872001, 8.618673395527566)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def "Looks"
+    {
+        def Material "texture_mat"
+        {
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </World/Looks/texture_mat/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </World/Looks/texture_mat/diffuseTexture.outputs:rgb>
+                float inputs:metallic = 0
+                float inputs:roughness = 0.45599997
+                token outputs:surface
+            }
+
+            def Shader "stReader"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname.connect = </World/Looks/texture_mat.inputs:frame:stPrimvarName>
+                float2 outputs:result
+            }
+
+            def Shader "diffuseTexture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @../textures/tile_image.png@
+                token inputs:sourceColorSpace = "sRGB" (
+                    allowedTokens = ["auto", "raw", "sRGB"]
+                )
+                float2 inputs:st.connect = </World/Looks/texture_mat/transform2d.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+
+            def Shader "transform2d"
+            {
+                uniform token info:id = "UsdTransform2d"
+                token inputs:in.connect = </World/Looks/texture_mat/stReader.outputs:result>
+                float inputs:rotation = 30
+                float2 inputs:scale = (1.5, 1.2)
+                float2 inputs:translation = (0.5, 0.2)
+                float2 outputs:result
+            }
+        }
+
+        def Material "texture_mat0"
+        {
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </World/Looks/texture_mat0/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </World/Looks/texture_mat0/diffuseTexture.outputs:rgb>
+                float inputs:metallic = 0
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
+
+            def Shader "stReader"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname.connect = </World/Looks/texture_mat0.inputs:frame:stPrimvarName>
+                float2 outputs:result
+            }
+
+            def Shader "diffuseTexture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @../textures/tile_image.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </World/Looks/texture_mat0/stReader.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
+        }
+    }
+
+    def Xform "Workspace"
+    {
+        token visibility = "inherited"
+        float3 xformOp:rotateZYX = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, -0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZYX", "xformOp:scale"]
+
+        def Mesh "Cube_transform2d"
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [3, 2, 0, 1, 3, 0, 5, 4, 2, 3, 5, 2, 7, 6, 4, 5, 7, 4, 1, 0, 6, 7, 1, 6, 5, 3, 1, 7, 5, 1, 2, 4, 6, 0, 2, 6]
+            rel material:binding = </World/Looks/texture_mat>
+            normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(50, -50, -50), (-50, -50, -50), (50, 50, -50), (-50, 50, -50), (50, 50, 50), (-50, 50, 50), (50, -50, 50), (-50, -50, 50)]
+            texCoord2f[] primvars:st = [(1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0)] (
+                interpolation = "faceVarying"
+            )
+            uniform token subdivisionScheme = "none"
+            token visibility = "inherited"
+            float3 xformOp:rotateZYX = (0, -1.0109721, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (150, 0, -0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZYX", "xformOp:scale"]
+        }
+
+        def Mesh "Cube_org"
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [3, 2, 0, 1, 3, 0, 5, 4, 2, 3, 5, 2, 7, 6, 4, 5, 7, 4, 1, 0, 6, 7, 1, 6, 5, 3, 1, 7, 5, 1, 2, 4, 6, 0, 2, 6]
+            rel material:binding = </World/Looks/texture_mat0>
+            normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 1, -0), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (0, -1, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (-1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0), (1, 0, -0)] (
+                interpolation = "faceVarying"
+            )
+            point3f[] points = [(50, -50, -50), (-50, -50, -50), (50, 50, -50), (-50, 50, -50), (50, 50, 50), (-50, 50, 50), (50, -50, 50), (-50, -50, 50)]
+            texCoord2f[] primvars:st = [(1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0), (1, 1), (0, 1), (0, 0), (1, 0), (1, 1), (0, 0)] (
+                interpolation = "faceVarying"
+            )
+            uniform token subdivisionScheme = "none"
+            token visibility = "inherited"
+            float3 xformOp:rotateZYX = (0, -1.0109721, -0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, -0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZYX", "xformOp:scale"]
+        }
+    }
+}
+
