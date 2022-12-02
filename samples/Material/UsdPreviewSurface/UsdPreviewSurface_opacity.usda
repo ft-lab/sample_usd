@@ -74,10 +74,11 @@ def Xform "Root"
         {
             uniform token info:id = "UsdPreviewSurface"
             color3f inputs:diffuseColor.connect = </Root/texture_mat/diffuseTexture.outputs:rgb>
+            normal3f inputs:normal.connect = </Root/texture_mat/normalTexture.outputs:rgb>
             float inputs:metallic = 0
+            float inputs:roughness = 0.5
             float inputs:opacity.connect = </Root/texture_mat/opacityTexture.outputs:a>
             float inputs:opacityThreshold = 0.5
-            float inputs:roughness = 0.45599997
             token outputs:surface
         }
 
@@ -98,6 +99,18 @@ def Xform "Root"
             token inputs:wrapT = "repeat"
             float3 outputs:rgb
         }
+
+        def Shader "normalTexture"
+        {
+            uniform token info:id = "UsdUVTexture"
+            asset inputs:file = @../textures/leaf_normal.png@
+            token inputs:sourceColorSpace = "raw"
+            token inputs:st.connect = </Root/texture_mat/stReader.outputs:result>
+            token inputs:wrapS = "repeat"
+            token inputs:wrapT = "repeat"
+            float3 outputs:rgb
+        }
+
 
         def Shader "opacityTexture"
         {
