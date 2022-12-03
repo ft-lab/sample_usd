@@ -7,8 +7,8 @@
                 double radius = 500
             }
             dictionary Perspective = {
-                double3 position = (136.8845464883566, 148.24226090969276, 85.75821812215925)
-                double3 target = (-0.000002818422814243604, 0.000008907895534093768, -0.000011312528272355848)
+                double3 position = (-0.5324335218999178, 26.780810120312474, 683.5861802211753)
+                double3 target = (-0.07171203682779731, 8.493943961449862, -2.5474956020964328)
             }
             dictionary Right = {
                 double3 position = (-50000, 0, 0)
@@ -20,6 +20,7 @@
             }
             string boundCamera = "/OmniverseKit_Persp"
         }
+        int refinementOverrideImplVersion = 0
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
             float3 "rtx:dynamicDiffuseGI:probeCounts" = (6, 6, 6)
@@ -50,85 +51,130 @@
             float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
             float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
             float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            bool "rtx:raytracing:fractionalCutoutOpacity" = 1
             float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
             float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            token "rtx:rendermode" = "PathTracing"
             float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
         }
     }
-    defaultPrim = "Root"
+    defaultPrim = "World"
     metersPerUnit = 0.01
     upAxis = "Y"
 )
 
-def Xform "Root"
+def Xform "World"
 {
-    def Material "texture_mat"
+    def Scope "Looks"
     {
-        token inputs:frame:stPrimvarName = "st"
-        token outputs:surface.connect = </Root/texture_mat/PBRShader.outputs:surface>
-        token ui:displayGroup = "Material Graphs"
-        token ui:displayName = "texture_mat"
-        int ui:order = 1024
-
-        def Shader "PBRShader"
+        def Material "texture_mat"
         {
-            uniform token info:id = "UsdPreviewSurface"
-            color3f inputs:diffuseColor.connect = </Root/texture_mat/diffuseTexture.outputs:rgb>
-            normal3f inputs:normal.connect = </Root/texture_mat/normalTexture.outputs:rgb>
-            float inputs:metallic = 0
-            float inputs:roughness = 0.5
-            float inputs:opacity.connect = </Root/texture_mat/opacityTexture.outputs:a>
-            float inputs:opacityThreshold = 0.5
-            token outputs:surface
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </World/Looks/texture_mat/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </World/Looks/texture_mat/diffuseTexture.outputs:rgb>
+                float inputs:ior = 1
+                float inputs:metallic = 0
+                float inputs:roughness = 0.45599997
+                token outputs:surface
+            }
+
+            def Shader "stReader"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname.connect = </World/Looks/texture_mat.inputs:frame:stPrimvarName>
+                float2 outputs:result
+            }
+
+            def Shader "diffuseTexture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @../textures/tile_image.png@
+                token inputs:sourceColorSpace = "sRGB"
+                token inputs:st.connect = </World/Looks/texture_mat/stReader.outputs:result>
+                token inputs:wrapS = "repeat"
+                token inputs:wrapT = "repeat"
+                float3 outputs:rgb
+            }
         }
 
-        def Shader "stReader"
+        def Material "opaque_mat"
         {
-            uniform token info:id = "UsdPrimvarReader_float2"
-            token inputs:varname.connect = </Root/texture_mat.inputs:frame:stPrimvarName>
-            float2 outputs:result
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </World/Looks/opaque_mat/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.5, 0.5, 0.5)
+                float inputs:ior = 1
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
         }
 
-        def Shader "diffuseTexture"
+        def Material "opacity_075_mat"
         {
-            uniform token info:id = "UsdUVTexture"
-            asset inputs:file = @../textures/leaf_diffuse.png@
-            token inputs:sourceColorSpace = "sRGB"
-            token inputs:st.connect = </Root/texture_mat/stReader.outputs:result>
-            token inputs:wrapS = "repeat"
-            token inputs:wrapT = "repeat"
-            float3 outputs:rgb
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </World/Looks/opacity_075_mat/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.5, 0.5, 0.5)
+                float inputs:ior = 1
+                float inputs:metallic = 0
+                float inputs:opacity = 0.75
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
         }
 
-        def Shader "normalTexture"
+        def Material "opacity_05_mat"
         {
-            uniform token info:id = "UsdUVTexture"
-            asset inputs:file = @../textures/leaf_normal.png@
-            token inputs:sourceColorSpace = "raw"
-            token inputs:st.connect = </Root/texture_mat/stReader.outputs:result>
-            token inputs:wrapS = "repeat"
-            token inputs:wrapT = "repeat"
-            float3 outputs:rgb
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </World/Looks/opacity_05_mat/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.5, 0.5, 0.5)
+                float inputs:ior = 1
+                float inputs:metallic = 0
+                float inputs:opacity = 0.5
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
         }
 
-
-        def Shader "opacityTexture"
+        def Material "opacity_025_mat"
         {
-            uniform token info:id = "UsdUVTexture"
-            asset inputs:file = @../textures/leaf_diffuse.png@
-            token inputs:sourceColorSpace = "sRGB"
-            token inputs:st.connect = </Root/texture_mat/stReader.outputs:result>
-            token inputs:wrapS = "repeat"
-            token inputs:wrapT = "repeat"
-            float3 outputs:a
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </World/Looks/opacity_025_mat/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.5, 0.5, 0.5)
+                float inputs:ior = 1
+                float inputs:metallic = 0
+                float inputs:opacity = 0.25
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
         }
     }
 
-    def Mesh "leaf"
+    def Mesh "Ground"
     {
         int[] faceVertexCounts = [4]
         int[] faceVertexIndices = [0, 2, 3, 1]
-        rel material:binding = </Root/texture_mat> (
+        rel material:binding = </World/Looks/texture_mat> (
             bindMaterialAs = "weakerThanDescendants"
         )
         normal3f[] normals = [(0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0)] (
@@ -139,9 +185,69 @@ def Xform "Root"
             interpolation = "faceVarying"
         )
         uniform token subdivisionScheme = "none"
+        double3 xformOp:rotateXYZ = (90, 0, 180)
+        double3 xformOp:scale = (5, 5, 2.5)
+        double3 xformOp:translate = (0, 1.8531451999289321e-28, -104.26904647651659)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Sphere "Sphere"
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        rel material:binding = </World/Looks/opaque_mat> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 50
+        custom bool refinementEnableOverride = 1
+        custom int refinementLevel = 2
         double3 xformOp:rotateXYZ = (0, 0, 0)
-        double3 xformOp:scale = (1, 1, 1)
-        double3 xformOp:translate = (0, 0, 0)
+        double3 xformOp:scale = (0.7, 0.7, 0.7)
+        double3 xformOp:translate = (-150, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Sphere "Sphere_01"
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        rel material:binding = </World/Looks/opacity_075_mat> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 50
+        custom bool refinementEnableOverride = 1
+        custom int refinementLevel = 2
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.7, 0.7, 0.7)
+        double3 xformOp:translate = (-50, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Sphere "Sphere_02"
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        rel material:binding = </World/Looks/opacity_05_mat> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 50
+        custom bool refinementEnableOverride = 1
+        custom int refinementLevel = 2
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.7, 0.7, 0.7)
+        double3 xformOp:translate = (50, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Sphere "Sphere_03"
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        rel material:binding = </World/Looks/opacity_025_mat> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 50
+        custom bool refinementEnableOverride = 1
+        custom int refinementLevel = 2
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.7, 0.7, 0.7)
+        double3 xformOp:translate = (150, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
     }
 }

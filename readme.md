@@ -108,14 +108,16 @@ UsdPreviewSurface.
 
 |File|Material Type|Description|      
 |---|---|---|      
-|[UsdPreviewSurface.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface.usda)|usdPreviewSurface|DiffuseColor only.<br>![UsdPreviewSurface.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface.jpg)|      
-|[UsdPreviewSurface_texture.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_texture.usda)|usdPreviewSurface|DiffuseColor Texture.<br>![UsdPreviewSurface_texture.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_texture.jpg)|      
-|[UsdPreviewSurface_multiply_texture.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_multiply_texture.usda)|usdPreviewSurface|DiffuseColor multiply texture.<br>Use inputs:scale.<br>![UsdPreviewSurface_multiply_texture.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_multiply_texture.jpg)|      
-|[UsdPreviewSurface_transform.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_transform.usda)|usdPreviewSurface|DiffuseColor texture with UsdTransform2d.<br>Use inputs:translation, inputs:scale.<br>![UsdPreviewSurface_transform.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_transform.jpg)|      
-|[UsdPreviewSurface_transform_rotate.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_transform_rotate.usda)|usdPreviewSurface|DiffuseColor texture with UsdTransform2d.<br>Use inputs:translation, inputs:scale, inputs:rotation.<br>![UsdPreviewSurface_transform_rotate.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_transform_rotate.jpg)|      
-|[UsdPreviewSurface_opacity.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_opacity.usda)|usdPreviewSurface|Opacity Map, Normal Map.<br>Use inputs:opacityThreshold.<br>![UsdPreviewSurface_opacity.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_opacity.jpg)|      
-|[UsdPreviewSurface_cyawan.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_cyawan.usda)|usdPreviewSurface|PBR Material.<br>Use diffuseColor Map, Normal Map, Roughness Map, Occlusion Map.<br>![UsdPreviewSurface_cyawan.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_cyawan.jpg)|      
+|[UsdPreviewSurface.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface.usda)|UsdPreviewSurface|DiffuseColor only.<br>![UsdPreviewSurface.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface.jpg)|      
+|[UsdPreviewSurface_texture.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_texture.usda)|UsdPreviewSurface|DiffuseColor Texture.<br>![UsdPreviewSurface_texture.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_texture.jpg)|      
+|[UsdPreviewSurface_multiply_texture.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_multiply_texture.usda)|UsdPreviewSurface|DiffuseColor multiply texture.<br>Use inputs:scale.<br>![UsdPreviewSurface_multiply_texture.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_multiply_texture.jpg)|      
+|[UsdPreviewSurface_transform.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_transform.usda)|UsdPreviewSurface|DiffuseColor texture with UsdTransform2d.<br>Use inputs:translation, inputs:scale.<br>![UsdPreviewSurface_transform.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_transform.jpg)|      
+|[UsdPreviewSurface_transform_rotate.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_transform_rotate.usda)|UsdPreviewSurface|DiffuseColor texture with UsdTransform2d.<br>Use inputs:translation, inputs:scale, inputs:rotation.<br>![UsdPreviewSurface_transform_rotate.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_transform_rotate.jpg)|      
+|[UsdPreviewSurface_opacity.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_opacity.usda)|UsdPreviewSurface|Use inputs:opacity.<br>![UsdPreviewSurface_opacity.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_opacity.jpg)<br>Opacity should be viewed with RTX-Interactive (Path Tracing).|      
+|[UsdPreviewSurface_opacityThreshold.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_opacityThreshold.usda)|UsdPreviewSurface|Opacity Map, Normal Map.<br>Use inputs:opacityThreshold.<br>![UsdPreviewSurface_opacityThreshold.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_opacityThreshold.jpg)|      
+|[UsdPreviewSurface_cyawan.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_cyawan.usda)|UsdPreviewSurface|PBR Material.<br>Use diffuseColor Map, Normal Map, Roughness Map, Occlusion Map.<br>![UsdPreviewSurface_cyawan.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_cyawan.jpg)<br>In Omniverse Create 2022.3 and USDView 22.11, the borders of the normal map are visible.|      
 
+OmniPBR.    
 
 
 ----
