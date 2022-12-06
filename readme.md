@@ -119,5 +119,10 @@ UsdPreviewSurface.
 
 OmniPBR.    
 
+|File|Material Type|Description|      
+|---|---|---|      
+|[UsdPreviewSurfaceAndOmniPBR.usda](samples/Material/OmniPBR/UsdPreviewSurfaceAndOmniPBR.usda)|OmniPBR|DiffuseColor only.<br>Comparison of UsdPreviewSurace and OmniPBR, where DIffuseColor is stored as "Linear".![UsdPreviewSurfaceAndOmniPBR.jpg](samples/Material/OmniPBR/images/UsdPreviewSurfaceAndOmniPBR.jpg)|      
+|[OmniPBR_multiply_texture.usda](samples/Material/OmniPBR/OmniPBR_multiply_texture.usda)|OmniPBR|DiffuseColor multiply texture.<br>![OmniPBR_multiply_texture.jpg](samples/Material/OmniPBR/images/OmniPBR_multiply_texture.jpg)|      
 
 ----
+
