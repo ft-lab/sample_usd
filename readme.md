@@ -100,7 +100,8 @@ I have decided to create a sample of USD files by function.
 |[simpleCubeVertex.usda](samples/mesh/simpleCubeVertex.usda)|-|Mesh Cube.<br>normal and UV with interpolation=vertex.<br>![simpleCubeVertex.usda](samples/mesh/images/simpleCubeVertex.jpg)|      
 |[concave_polygons.usda](samples/TriangulationOfPolygon/concave_polygons.usda)|UsdPreviewSurface|Triangulation of polygons.<br>Below is the display in Unity.<br>![concave_polygons](samples/TriangulationOfPolygon/images/concave_polygons.jpg)<br>This sample is not correctly triangulated even with Omniverse Create 2022.3.|      
 |[easyChair_01.usdc](samples/TriangulationOfPolygon/easyChair_01.usdc)|UsdPreviewSurface|Triangulation of polygons.<br>Below is the display in Unity.<br>![easyChair_01.usdc](samples/TriangulationOfPolygon/images/easyChair_01.jpg)<br>This sample is not correctly triangulated even with Omniverse Create 2022.3.|      
-|[simpleCubeSubdivision.usda](samples/mesh/simpleCubeSubdivision.usda)|-|Mesh Cube with Subdivision.<br>Use faceVarying with normal and UV.<br>![simpleCubeSubdivision.usda](samples/mesh/images/simpleCubeSubdivision.jpg)|      
+|[simpleCubeSubdivision.usda](samples/mesh/simpleCubeSubdivision.usda)|-|Mesh Cube with Subdivision.<br>Use faceVarying with normal and UV.<br>![simpleCubeSubdivision.jpg](samples/mesh/images/simpleCubeSubdivision.jpg)|      
+|[primvars_normals.usda](samples/mesh/primvars_normals.usda)|OmniPBR|Normals are specified with "primvars:normals".<br>![primvars_normals.jpg](samples/mesh/images/primvars_normals.jpg)|      
 
 ### Material
 

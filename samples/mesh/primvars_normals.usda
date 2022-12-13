@@ -1,0 +1,128 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary audioSettings = {
+            double dopplerLimit = 2
+            double dopplerScale = 1
+            token enableDistanceDelay = "off"
+            token enableDoppler = "off"
+            token enableInterauralDelay = "off"
+            double nonSpatialTimeScale = 1
+            double spatialTimeScale = 1
+            double speedOfSound = 340
+        }
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 50000)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (87.64621873716139, 79.21934027983475, 163.4530280066288)
+                double3 target = (-6.706507390841338, -5.719698039799013, 5.882505845852023)
+            }
+            dictionary Right = {
+                double3 position = (-50000, 0, 0)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (0, 50000, 0)
+                double radius = 500
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:dynamicDiffuseGI:probeCounts" = (6, 6, 6)
+            float3 "rtx:dynamicDiffuseGI:probeGridOrigin" = (-210, -250, -10)
+            float3 "rtx:dynamicDiffuseGI:volumeSize" = (600, 440, 300)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:lightspeed:material:overrideAlbedo" = (0.5, 0.5, 0.5)
+            float3 "rtx:lightspeed:material:overrideEmissiveColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    metersPerUnit = 0.01
+)
+
+def Xform "World"
+{
+    double3 xformOp:rotateXYZ = (0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+    def Mesh "Cube" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        float3[] extent = [(-26.69227, -20.203093, -21.619722), (26.69227, 20.203093, 21.619722)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [2, 3, 1, 0, 6, 7, 5, 4, 0, 6, 4, 2, 3, 5, 7, 1, 0, 1, 7, 6, 3, 2, 4, 5]
+        rel material:binding = </World/Looks/OmniPBR> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        point3f[] points = [(26.69227, -20.203093, 21.619722), (-26.69227, -20.203093, 21.619722), (26.69227, 20.203093, 21.619722), (-26.69227, 20.203093, 21.619722), (26.69227, 20.203093, -21.619722), (-26.69227, 20.203093, -21.619722), (26.69227, -20.203093, -21.619722), (-26.69227, -20.203093, -21.619722)]
+        color3f[] primvars:displayColor = [(1, 1, 1)]
+        float[] primvars:displayOpacity = [1]
+        normal3f[] primvars:normals = [(0, 0, 1), (1, 0, 0), (0, -1, 0), (0, 0, 1), (-1, 0, 0), (0, -1, 0), (0, 0, 1), (1, 0, 0), (0, 1, 0), (0, 0, 1), (-1, 0, 0), (0, 1, 0), (0, 0, -1), (1, 0, 0), (0, 1, 0), (0, 0, -1), (-1, 0, 0), (0, 1, 0), (0, 0, -1), (1, 0, 0), (0, -1, 0), (0, 0, -1), (-1, 0, 0), (0, -1, 0)] (
+            interpolation = "faceVarying"
+        )
+        int[] primvars:normals:indices = [6, 9, 3, 0, 18, 21, 15, 12, 1, 19, 13, 7, 10, 16, 22, 4, 2, 5, 23, 20, 11, 8, 14, 17]
+        texCoord2f[] primvars:st = [(0.619611, 0.600924), (0.011985, 0.594668), (0.61954, 0.989947), (0.989902, 0.594974), (0.914058, 0.600977), (0.306432, 0.59476), (0.913987, 0.99), (0.695455, 0.594882), (0.01007, 0.600814), (0.306531, 0.279667), (0.01, 0.989836), (0.695553, 0.279788), (0.304517, 0.600867), (0.012084, 0.279575), (0.304447, 0.98989), (0.99, 0.27988)] (
+            interpolation = "faceVarying"
+        )
+        int[] primvars:st:indices = [4, 6, 2, 0, 12, 14, 10, 8, 1, 13, 9, 5, 7, 11, 15, 3, 0, 2, 14, 12, 7, 5, 9, 11]
+        matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+
+        uniform token subdivisionScheme = "none"
+    }
+
+    def Scope "Looks"
+    {
+        def Material "OmniPBR"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/OmniPBR/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/OmniPBR/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/OmniPBR/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                token outputs:out
+            }
+        }
+    }
+}
+
