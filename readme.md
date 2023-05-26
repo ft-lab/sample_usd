@@ -129,12 +129,18 @@ OmniPBR.
 |[UsdPreviewSurfaceAndOmniPBR.usda](samples/Material/OmniPBR/UsdPreviewSurfaceAndOmniPBR.usda)|OmniPBR|DiffuseColor only.<br>Comparison of UsdPreviewSurace and OmniPBR, where DIffuseColor is stored as "Linear".![UsdPreviewSurfaceAndOmniPBR.jpg](samples/Material/OmniPBR/images/UsdPreviewSurfaceAndOmniPBR.jpg)|      
 |[OmniPBR_multiply_texture.usda](samples/Material/OmniPBR/OmniPBR_multiply_texture.usda)|OmniPBR|DiffuseColor multiply texture.<br>![OmniPBR_multiply_texture.jpg](samples/Material/OmniPBR/images/OmniPBR_multiply_texture.jpg)|      
 
-DisplayColor.      
+### DisplayColor      
 |File|Material Type|Description|      
 |---|---|---|      
 |[displayColor.usda](samples/DisplayColor/displayColor.usda)|---|Set DisplayColor of single color.<br>![displayColor.jpg](samples/DisplayColor/images/displayColor.jpg)|      
 |[displayColor_VertexColor.usda](samples/DisplayColor/displayColor_VertexColor.usda)|---|Set the vertex color with DisplayColor.<br>![displayColor_VertexColor.jpg](samples/DisplayColor/images/displayColor_vertexColor.jpg)<br>Works with Omniverse RTX, USDView.|      
 |[displayColor_VertexColorFaces.usda](samples/DisplayColor/displayColor_VertexColorFaces.usda)|---|Set the vertex color with DisplayColor. For each face.<br>![displayColor_VertexColorFaces.jpg](samples/DisplayColor/images/displayColor_VertexColorFaces.jpg)<br>Works with Omniverse RTX, USDView.|      
+
+### Points (Point Clouds)
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[PointClouds.usda](samples/PointClouds/PointClouds.usda)|---|Point Clouds.<br>![PointClouds.jpg](samples/PointClouds/images/PointClouds.jpg)<br>Supported by USDView.<br>Omniverse RTX does not reflect DisplayColor to the point.|      
 
 ----
 
