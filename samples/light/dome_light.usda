@@ -96,7 +96,7 @@ def Xform "World"
         float shaping:focus
         color3f shaping:focusTint
         asset shaping:ies:file
-        asset texture:file = @./urban_courtyard_02_1k.exr@
+        asset texture:file = @./forest_road_1024x512.exr@
         token texture:format = "latlong"
         token visibility = "inherited"
         double3 xformOp:rotateXYZ = (270, 0, 0)
