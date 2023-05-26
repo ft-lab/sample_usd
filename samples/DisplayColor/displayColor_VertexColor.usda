@@ -1,0 +1,23 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    endTimeCode = 300
+    framesPerSecond = 30
+    startTimeCode = 0
+)
+
+def Xform "root"
+{
+    def Mesh "mesh"
+    {
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 2, 3, 1]
+        normal3f[] normals = [(0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0)]
+        point3f[] points = [(-5, 0, 5), (-5, 0, -5), (5, 0, 5), (5, 0, -5)]
+        color3f[] primvars:displayColor = [(1, 0, 1), (1, 0, 0), (0, 1, 0), (0, 0, 1)] (
+            interpolation = "faceVarying"
+        )
+        uniform token subdivisionScheme = "none"
+    }
+}
+

@@ -51,6 +51,7 @@ def Xform "root"
         color3f[] primvars:colors = [(1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0)] (
             interpolation = "faceVarying"
         )
+        int[] primvars:colors:indices = [0, 1, 2, 3, 4, 5, 6, 7]
 
         uniform token subdivisionScheme = "none"
     }
