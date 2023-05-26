@@ -133,7 +133,7 @@ DisplayColor.
 |File|Material Type|Description|      
 |---|---|---|      
 |[displayColor.usda](samples/DisplayColor/displayColor.usda)|---|Set DisplayColor of single color.<br>![displayColor.jpg](samples/DisplayColor/images/displayColor.jpg)|      
-|[displayColor_VertexColor.usda](samples/DisplayColor/displayColor_VertexColor.usda)|---|Set the vertex color with DisplayColor.<br>![displayColor_VertexColor.jpg](samples/DisplayColor/images/displayColor_VertexColor.jpg)<br>Works with Omniverse RTX, USDView.|      
+|[displayColor_VertexColor.usda](samples/DisplayColor/displayColor_VertexColor.usda)|---|Set the vertex color with DisplayColor.<br>![displayColor_VertexColor.jpg](samples/DisplayColor/images/displayColor_vertexColor.jpg)<br>Works with Omniverse RTX, USDView.|      
 |[displayColor_VertexColorFaces.usda](samples/DisplayColor/displayColor_VertexColorFaces.usda)|---|Set the vertex color with DisplayColor. For each face.<br>![displayColor_VertexColorFaces.jpg](samples/DisplayColor/images/displayColor_VertexColorFaces.jpg)<br>Works with Omniverse RTX, USDView.|      
 
 ----
