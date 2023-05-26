@@ -1,7 +1,5 @@
 # USD Samples
 
-This is a collection of USD samples that will be made available on GitHub later.     
-
 This includes materials using MDLs that are compatible with NVIDIA Omniverse.      
 
 ## What USD ?
