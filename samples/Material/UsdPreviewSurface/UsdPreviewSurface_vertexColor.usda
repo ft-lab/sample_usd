@@ -1,0 +1,58 @@
+#usda 1.0
+(
+    defaultPrim = "root"
+    endTimeCode = 300
+    framesPerSecond = 30
+    startTimeCode = 0
+)
+
+def Xform "root"
+{
+    def Scope "Materials"
+    {
+        def Material "mat"
+        {
+            token outputs:surface.connect = </root/Materials/mat/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                #color3f inputs:diffuseColor = (1, 0, 1)
+                color3f inputs:diffuseColor.connect = </root/Materials/mat/diffuseVertexColor.outputs:result>
+                float inputs:ior = 1
+                float inputs:metallic = 0
+                float inputs:opacity = 1
+                float inputs:roughness = 0
+                token outputs:surface
+            }
+
+            def Shader "diffuseVertexColor"
+            {
+                uniform token info:id = "UsdPrimvarReader_float3"
+                color3f inputs:fallback = (1, 0, 0)
+                string inputs:varname = "colors"
+                color3f outputs:result
+            } 
+        }
+    }
+
+    def Mesh "mesh"
+    {
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 2, 3, 1]
+        rel material:binding = </root/Materials/mat>
+        normal3f[] normals = [(0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0)]
+        point3f[] points = [(-5, 0, 5), (-5, 0, -5), (5, 0, 5), (5, 0, -5)]
+        texCoord2f[] primvars:st = [(1, 0), (1, 1), (0, 1), (0, 0)] (
+            interpolation = "faceVarying"
+        )
+        int[] primvars:st:indices = [0, 1, 2, 3]
+
+        color3f[] primvars:colors = [(1, 0, 1), (1, 0, 0), (0, 1, 0), (0, 0, 1)] (
+            interpolation = "vertex"
+        )
+
+        uniform token subdivisionScheme = "none"
+    }
+}
+

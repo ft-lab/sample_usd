@@ -116,7 +116,9 @@ UsdPreviewSurface.
 |[UsdPreviewSurface_transform_rotate.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_transform_rotate.usda)|UsdPreviewSurface|DiffuseColor texture with UsdTransform2d.<br>Use inputs:translation, inputs:scale, inputs:rotation.<br>![UsdPreviewSurface_transform_rotate.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_transform_rotate.jpg)|      
 |[UsdPreviewSurface_opacity.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_opacity.usda)|UsdPreviewSurface|Use inputs:opacity.<br>![UsdPreviewSurface_opacity.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_opacity.jpg)<br>Opacity should be viewed with RTX-Interactive (Path Tracing).|      
 |[UsdPreviewSurface_opacityThreshold.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_opacityThreshold.usda)|UsdPreviewSurface|Opacity Map, Normal Map.<br>Use inputs:opacityThreshold.<br>![UsdPreviewSurface_opacityThreshold.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_opacityThreshold.jpg)|      
-|[UsdPreviewSurface_cyawan.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_cyawan.usda)|UsdPreviewSurface|PBR Material.<br>Use diffuseColor Map, Normal Map, Roughness Map, Occlusion Map.<br>![UsdPreviewSurface_cyawan.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_cyawan.jpg)<br>In Omniverse Create 2022.3 and USDView 22.11, the borders of the normal map are visible.|      
+|[UsdPreviewSurface_cyawan.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_cyawan.usda)|UsdPreviewSurface|PBR Material.<br>Use diffuseColor Map, Normal Map, Roughness Map, Occlusion Map.<br>![UsdPreviewSurface_cyawan.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_cyawan.jpg)<br>In NormnalMap, bias=(-1, -1, -1, 0), scale=(2, 2, 2, 1).|      
+|[UsdPreviewSurface_vertexColor.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_vertexColor.usda)|UsdPreviewSurface|Vertex Color<br>Supported by USDView but not by Omniverse RTX.<br>![UsdPreviewSurface_vertexColor.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_vertexColor.jpg)|      
+
 
 OmniPBR.    
 
