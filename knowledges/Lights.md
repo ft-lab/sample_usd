@@ -76,3 +76,62 @@ Outer = Angle
 Inner = max(Angle - (Softness * 90.0), 0.0)
 ```
 
+## From SphereLight to PointLight
+
+In 3DCG, PointLight, which has no surface area, may be used.     
+Note, however, that in the real world there are no lights that have no surface area.      
+
+There is no PointLight in USD that does not have a surface area.      
+To simulate PointLight from SphereLight, use the surface area of the sphere.     
+
+*I* : Light intensity      
+*R* : Radius of Sphere Light      
+
+The formula for the surface area of a sphere is 4 * PI * *R*^2.     
+
+From *I* and *R*, the light intensity is calculated to be the same even if the radius is changed.     
+
+*I* = 30000, *R* = 20, This was used as the base value here.      
+This is the surface area of a sphere of radius 20.     
+```
+4 * PI * R^2 = 4 * PI * 20^2 = 1600 * PI
+```
+
+Change the radius to 50 and calculate the same amount of light emitted from SphereLight at this time.     
+Light Intensity is inversely proportional to the surface area of the sphere.     
+
+```
+4 * PI * 50^2 = 10000 * PI
+I' = ((1600 * PI) / (10000 * PI)) * I = (1600 / 10000) * 30000 = 4800
+```
+
+Change the radius of the sphere to 100 and recalculate.     
+```
+4 * PI * 100^2 = 40000 * PI
+I'' = ((1600 * PI) / (40000 * PI)) * I = (1600 / 40000) * 30000 = 1200
+```
+
+This is the calculation of light intensity at "[point_light.usda](../samples/light/point_light.usda)".     
+![light_pointlight_01.jpg](./images/Lights/light_pointlight_01.jpg)     
+
+The amount of light received on the ground is the same for different radii of SphereLight.     
+
+### Calculate intensity at PointLight
+
+In this case, the radius of SphereLight can be reduced to get closer to PointLight.      
+
+*I* = 30000, *R* = 20, Using this as a base, calculate the intensity at a radius of 1.0.    
+
+```
+4 * PI * 1^2 = 4 * PI
+I''` = ((1600 * PI) / (4 * PI)) * I = (1600 / 4) * 30000 = 12000000
+```
+
+This is as follows.     
+![light_pointlight_02.jpg](./images/Lights/light_pointlight_02.jpg)     
+In Omniverse RTX-Real-Time, the radius of SphereLight could not be smaller than 1.0 (cm).     
+
+In Omniverse RTX-Interactive, the SphereLight radius can be smaller than 1.0 (cm), but in that case, it seems that "Treat At Point" needs to be On.     
+![light_pointlight_03.png](./images/Lights/light_pointlight_03.png)     
+
+
