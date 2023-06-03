@@ -61,7 +61,7 @@ print(f"v2 = {v2}")
 print(f"v3 = {v3}")
 ```
 
-The output is as follows: v1=v2.     
+The output is as follows: v1=v3.     
 ```
 v1 = (0.75, 0.9, 1)
 v2 = (0.52252156, 0.7874122, 1)
