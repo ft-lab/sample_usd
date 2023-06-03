@@ -8,7 +8,7 @@
             }
             dictionary Perspective = {
                 double3 position = (-0.5324335218999178, 26.780810120312474, 683.5861802211753)
-                double3 target = (-0.07171203682779731, 8.493943961449862, -2.5474956020964328)
+                double3 target = (-0.07171203682780258, 8.493943961449858, -2.547495602096319)
             }
             dictionary Right = {
                 double3 position = (-50000, 0, 0)
@@ -20,15 +20,14 @@
             }
             string boundCamera = "/OmniverseKit_Persp"
         }
+        dictionary omni_layer = {
+            string authoring_layer = "./UsdPreviewSurface_opacity.usda"
+        }
         int refinementOverrideImplVersion = 0
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
-            float3 "rtx:dynamicDiffuseGI:probeCounts" = (6, 6, 6)
-            float3 "rtx:dynamicDiffuseGI:probeGridOrigin" = (-210, -250, -10)
-            float3 "rtx:dynamicDiffuseGI:volumeSize" = (600, 440, 300)
             float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
-            float3 "rtx:lightspeed:material:overrideAlbedo" = (0.5, 0.5, 0.5)
-            float3 "rtx:lightspeed:material:overrideEmissiveColor" = (0.5, 0.5, 0.5)
+            bool "rtx:indirectDiffuse:enabled" = 1
             float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
             float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
             float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
@@ -54,7 +53,6 @@
             bool "rtx:raytracing:fractionalCutoutOpacity" = 1
             float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
             float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
-            token "rtx:rendermode" = "PathTracing"
             float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
         }
     }
