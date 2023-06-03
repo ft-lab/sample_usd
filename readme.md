@@ -128,6 +128,7 @@ OmniPBR.
 |---|---|---|      
 |[UsdPreviewSurfaceAndOmniPBR.usda](samples/Material/OmniPBR/UsdPreviewSurfaceAndOmniPBR.usda)|OmniPBR|DiffuseColor only.<br>Comparison of UsdPreviewSurace and OmniPBR, where DIffuseColor is stored as "Linear".![UsdPreviewSurfaceAndOmniPBR.jpg](samples/Material/OmniPBR/images/UsdPreviewSurfaceAndOmniPBR.jpg)|      
 |[OmniPBR_cyawan.usda](samples/Material/OmniPBR/OmniPBR_cyawan.usda)|OmniPBR|AlbedoMap, RoughnessMap, NormalMap, and OcclusionMap in OmniPBR.<br>![OmniPBR_cyawan.jpg](samples/Material/OmniPBR/images/OmniPBR_cyawan.jpg)|      
+|[OmniPBR_opacityThreshold.usda](samples/Material/OmniPBR/OmniPBR_opacityThreshold.usda)|OmniPBR|Use OpacityMap.<br>Specify "mono_alpha" in Opacity Mono Source.<br>![OmniPBR_opacityThreshold.jpg](samples/Material/OmniPBR/images/OmniPBR_opacityThreshold.jpg)|      
 |[OmniPBR_multiply_texture.usda](samples/Material/OmniPBR/OmniPBR_multiply_texture.usda)|OmniPBR|DiffuseColor multiply texture.<br>![OmniPBR_multiply_texture.jpg](samples/Material/OmniPBR/images/OmniPBR_multiply_texture.jpg)|      
 
 ### DisplayColor      
