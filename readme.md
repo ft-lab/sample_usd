@@ -154,7 +154,7 @@ OmniPBR.
 ## Knowledges
 
 * [Color space : Interconversion between sRGB and Linear(raw)](./knowledges/ColorSpaceConversion.md)
-* Lights
+* [Lights](./knowledges/Lights.md)
 * Camera
 
 ----
