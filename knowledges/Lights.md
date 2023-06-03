@@ -124,14 +124,14 @@ In this case, the radius of SphereLight can be reduced to get closer to PointLig
 
 ```
 4 * PI * 1^2 = 4 * PI
-I''` = ((1600 * PI) / (4 * PI)) * I = (1600 / 4) * 30000 = 12000000
+I''' = ((1600 * PI) / (4 * PI)) * I = (1600 / 4) * 30000 = 12000000
 ```
 
 This is as follows.     
 ![light_pointlight_02.jpg](./images/Lights/light_pointlight_02.jpg)     
 In Omniverse RTX-Real-Time, the radius of SphereLight could not be smaller than 1.0 (cm).     
 
-In Omniverse RTX-Interactive, the SphereLight radius can be smaller than 1.0 (cm), but in that case, it seems that "Treat At Point" needs to be On.     
+In Omniverse RTX-Interactive, the SphereLight radius can be smaller than 1.0 (cm), but in that case, it seems that "Treat As Point" needs to be On.     
 ![light_pointlight_03.png](./images/Lights/light_pointlight_03.png)     
 
 
