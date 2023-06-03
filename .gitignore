@@ -1,0 +1,12 @@
+
+# Mac OS X
+*.DS_Store
+
+# VSCode
+.vscode
+
+# Affinity Photo
+*.afphoto
+
+# USD Thumbnails
+.thumbs
