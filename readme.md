@@ -34,6 +34,12 @@ I have decided to create a sample of USD files by function.
 |[unit_test_m.usda](samples/metersPerUnit/unit_test_m.usda)|OmniPBR|Placement of 1 meter plane.<br>Stage unit is m (metersPerUnit=1.0).<br>![unit_test_m](samples/metersPerUnit/images/unit_test_m.jpg)|      
 |[unit_test_mm.usda](samples/metersPerUnit/unit_test_mm.usda)|OmniPBR|Placement of 1 meter plane.<br>Stage unit is mm (metersPerUnit=0.001).<br>![unit_test_mm](samples/metersPerUnit/images/unit_test_mm.jpg)|      
 
+### Up Axis
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[UpAxis_Y.usda](samples/UpAxis/UpAxis_Y.usda)|OmniPBR|Up axis Y.<br>![UpAxis_Y](samples/UpAxis/images/UpAxis_Y.jpg)|      
+|[UpAxis_Z.usda](samples/UpAxis/UpAxis_Z.usda)|OmniPBR|Up axis Z.<br>![UpAxis_Z](samples/UpAxis/images/UpAxis_Z.jpg)|      
 
 ### Primitive
 
@@ -128,6 +134,7 @@ OmniPBR.
 |---|---|---|      
 |[UsdPreviewSurfaceAndOmniPBR.usda](samples/Material/OmniPBR/UsdPreviewSurfaceAndOmniPBR.usda)|OmniPBR|DiffuseColor only.<br>Comparison of UsdPreviewSurace and OmniPBR, where DIffuseColor is stored as "Linear".![UsdPreviewSurfaceAndOmniPBR.jpg](samples/Material/OmniPBR/images/UsdPreviewSurfaceAndOmniPBR.jpg)|      
 |[OmniPBR_cyawan.usda](samples/Material/OmniPBR/OmniPBR_cyawan.usda)|OmniPBR|AlbedoMap, RoughnessMap, NormalMap, and OcclusionMap in OmniPBR.<br>![OmniPBR_cyawan.jpg](samples/Material/OmniPBR/images/OmniPBR_cyawan.jpg)|      
+|[OmniPBR_opacity.usda](samples/Material/OmniPBR/OmniPBR_opacity.usda)|OmniPBR|Use Opacity.<br>![OmniPBR_opacity.jpg](samples/Material/OmniPBR/images/OmniPBR_opacity.jpg)|      
 |[OmniPBR_opacityThreshold.usda](samples/Material/OmniPBR/OmniPBR_opacityThreshold.usda)|OmniPBR|Use OpacityMap.<br>Specify "mono_alpha" in Opacity Mono Source.<br>![OmniPBR_opacityThreshold.jpg](samples/Material/OmniPBR/images/OmniPBR_opacityThreshold.jpg)|      
 |[OmniPBR_multiply_texture.usda](samples/Material/OmniPBR/OmniPBR_multiply_texture.usda)|OmniPBR|DiffuseColor multiply texture.<br>![OmniPBR_multiply_texture.jpg](samples/Material/OmniPBR/images/OmniPBR_multiply_texture.jpg)|      
 
