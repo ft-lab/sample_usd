@@ -135,3 +135,30 @@ In Omniverse RTX-Interactive, the SphereLight radius can be smaller than 1.0 (cm
 ![light_pointlight_03.png](./images/Lights/light_pointlight_03.png)     
 
 
+## RectLight
+
+In the usda file, RectLight is described as follows.     
+
+```
+def RectLight "RectLight_100x100_Intensity_15000" (
+    prepend apiSchemas = ["ShapingAPI"]
+)
+{
+    float height = 100
+    float intensity = 15000
+    float shaping:cone:angle = 180
+    float shaping:cone:softness
+    float shaping:focus
+    color3f shaping:focusTint
+    asset shaping:ies:file
+    float width = 100
+    double3 xformOp:rotateXYZ = (-90, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (-400, 100, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+```
+The width and height specify the size of the RectLight.     
+The area can be calculated by width * height.     
+The larger the area, the greater the illuminance, even if the intensity is the same.    
+

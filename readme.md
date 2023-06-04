@@ -59,6 +59,7 @@ I have decided to create a sample of USD files by function.
 |---|---|---|      
 |[point_light.usda](samples/light/point_light.usda)|-|Point Light with Sphere Light.<br>Use the ratio of radius to surface area to achieve the same light intensity<br>![point_light](samples/light/images/point_light.jpg)|      
 |[spot_light.usda](samples/light/spot_light.usda)|-|Spot Light with Sphere Light.<br>Change in Cone Angle and Cone Softness.<br>![spot_light](samples/light/images/spot_light.jpg)|      
+|[rect_light.usda](samples/light/rect_light.usda)|-|Rect Light.<br>Adjusts the ratio of RectLight area to intensity so that the same amount of light is produced for different sizes.<br>![rect_light](samples/light/images/rect_light.jpg)|      
 |[dome_light.usda](samples/light/dome_light.usda)|OmniPBR|DomeLight.<br>![dome_light](samples/light/images/dome_light.jpg)|      
 
 ### doubleSided

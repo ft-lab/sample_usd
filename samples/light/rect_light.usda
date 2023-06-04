@@ -21,7 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./point_light.usda"
+            string authoring_layer = "./rect_light.usda"
             dictionary muteness = {
             }
         }
@@ -119,54 +119,39 @@ def Xform "World"
         }
     }
 
-    def SphereLight "SphereLight_radius_20_intensity_30000" (
+    def RectLight "RectLight_100x100_Intensity_15000" (
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float intensity = 30000
-        float radius = 20
+        float height = 100
+        float intensity = 15000
         float shaping:cone:angle = 180
         float shaping:cone:softness
         float shaping:focus
         color3f shaping:focusTint
         asset shaping:ies:file
-        double3 xformOp:rotateXYZ = (0, 0, 0)
-        double3 xformOp:scale = (0.5, 0.5, 0.5)
-        double3 xformOp:translate = (-400, 73.13557129930896, 0)
+        float width = 100
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-400, 100, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
     }
 
-    def SphereLight "SphereLight_radius_50_intensity_4800" (
+    def RectLight "RectLight_50x50_Intensity_60000" (
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float intensity = 4800
-        float radius = 50
+        float height = 50
+        float intensity = 60000
         float shaping:cone:angle = 180
         float shaping:cone:softness
         float shaping:focus
         color3f shaping:focusTint
         asset shaping:ies:file
-        double3 xformOp:rotateXYZ = (0, 0, 0)
-        double3 xformOp:scale = (0.5, 0.5, 0.5)
-        double3 xformOp:translate = (0, 73.13557129930896, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
-    }
-
-    def SphereLight "SphereLight_radius_100_intensity_1200" (
-        prepend apiSchemas = ["ShapingAPI"]
-    )
-    {
-        float intensity = 1200
-        float radius = 100
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
-        double3 xformOp:rotateXYZ = (0, 0, 0)
-        double3 xformOp:scale = (0.5, 0.5, 0.5)
-        double3 xformOp:translate = (400, 73.13557129930896, 0)
+        float width = 50
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (400, 99.99999999999737, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
     }
 }
