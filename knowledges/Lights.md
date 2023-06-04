@@ -129,10 +129,15 @@ I''' = ((1600 * PI) / (4 * PI)) * I = (1600 / 4) * 30000 = 12000000
 
 This is as follows.     
 ![light_pointlight_02.jpg](./images/Lights/light_pointlight_02.jpg)     
-In Omniverse RTX-Real-Time, the radius of SphereLight could not be smaller than 1.0 (cm).     
+In Omniverse RTX-Real-Time, there were cases where SphereLight's Radius could be smaller than 1.0 without any impact.     
 
 In Omniverse RTX-Interactive, the SphereLight radius can be smaller than 1.0 (cm), but in that case, it seems that "Treat As Point" needs to be On.     
 ![light_pointlight_03.png](./images/Lights/light_pointlight_03.png)     
+
+### Hard Shadow with SphereLight
+
+In both RTX-Real-Time and RTX-Interactive, the shadows were kept hard by setting "Treat As Point" in SphereLight to On.     
+![light_spherelight_01.jpg](./images/Lights/light_spherelight_01.jpg)     
 
 
 ## RectLight
@@ -161,4 +166,6 @@ def RectLight "RectLight_100x100_Intensity_15000" (
 The width and height specify the size of the RectLight.     
 The area can be calculated by width * height.     
 The larger the area, the greater the illuminance, even if the intensity is the same.    
+
+## SphereLight Intensity
 
