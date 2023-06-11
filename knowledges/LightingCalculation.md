@@ -123,3 +123,69 @@ Conditions : For nadir illumination.
 > *I* = *E* * *R*^2    
 > *Phi* = 2 * Pi * (1.0 - cos(Pi * (*Angle* / 360.0))) * *I*     
 
+## Calculate Intensity of SphereLight in Omniverse from Blender
+
+The unit of SphereLight intensity in USD is nits.     
+This represents luminance, which specifies the brightness per unit area.      
+Therefore, as the radius of the SphereLight changes, the overall amount of light changes.      
+
+### Irradiance : Light intensity units in Blender's Point Light
+
+The intensity of light (Power) in Blender's Point Light is "W".    
+![light_Blender_PointLight.png](./images/Lights/light_Blender_PointLight.png)     
+This is a unit of Irradiance.     
+Also, the radius of PointLight is set here to 2.0 (m).    
+
+### Irradiance to illuminance conversion
+
+This is converted to illuminance (Lux).    
+The following is for reference.     
+
+* https://cgbeginner.net/blender-cycles-physically-correct-brightness/
+* https://en.wikipedia.org/wiki/Luminous_efficiency_function
+
+> 1.000 W/m2 = 683.002 Lux    
+
+If Power is 1000W in Blender, the following calculation was used to convert it to illuminance.      
+
+> 1000 W = 1000 * 683.002 = 683002 Lux     
+
+### Illuminance to luminous intensity conversion
+
+This was taken as the nadir illuminance at a distance of 1(m).     
+In this case, the luminous flux can be calculated as follows.    
+Assume that the radiation is emitted from the entire sphere because it is PointLight.      
+
+> *I* = *E* * *R*^2    
+
+For R=1.0, *I* = *E* .    
+
+683002 (Lux) was calculated to be 683002 (cd).     
+
+### Luminous intensity to Luminance conversion
+
+The final unit to be determined is nits, which is the same as cd/m^2.    
+
+Luminance can be calculated by dividing the luminous flux by the surface area of a sphere of radius R.     
+
+> *L* = *I* / *S'*    
+
+683002 / (4 * Pi * R^2) = 683002 / 50.265482456 = 13587.893    
+
+![light_USD_SphereLight.png](./images/Lights/light_USD_SphereLight.png)     
+
+Note that this scene is multiplied by 100 in Root Prim.    
+Therefore, the unit of Radius=2.0 is passed on as meters.     
+
+The comparison between Blender and Omniverse (USD) was as follows.    
+![light_BlenderUSD_SphereLight_01.jpg](./images/Lights/light_BlenderUSD_SphereLight_01.jpg)     
+
+I adjusted the ToneMapping on the Omniverse Create side a little.     
+
+Tone Mapping Operator : Aces => Linear (Off)     
+F-stop : 5.0 => 6.0     
+
+![light_BlenderUSD_SphereLight_02.png](./images/Lights/light_BlenderUSD_SphereLight_02.png)     
+This is done to minimize differences in the effects of Post Processing.     
+But I am not sure if it is correct to adjust F-stop.     
+
