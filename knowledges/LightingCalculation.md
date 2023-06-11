@@ -175,6 +175,7 @@ Luminance can be calculated by dividing the luminous flux by the surface area of
 ![light_USD_SphereLight.png](./images/Lights/light_USD_SphereLight.png)     
 
 Note that this scene is multiplied by 100 in Root Prim.    
+Also, the default scene unit for USD is cm.     
 Therefore, the unit of Radius=2.0 is passed on as meters.     
 
 The comparison between Blender and Omniverse (USD) was as follows.    
