@@ -2,6 +2,11 @@
 
 This section provides the information necessary for lighting calculations.     
 
+## References
+
+* https://tutorials.shade3d.jp/%e5%85%89%e6%ba%90%e3%81%a7%e4%bd%bf%e3%82%8f%e3%82%8c%e3%82%8b%e7%94%a8%e8%aa%9e-%e6%98%8e%e3%82%8b%e3%81%95%e3%81%ae%e5%8d%98%e4%bd%8d/post/6112
+* https://tomari.org/main/java/hikari.html
+
 ## Lighting Unit
 
 |Name|Unit|Description|     
@@ -64,4 +69,57 @@ Note that in the case of diffuse reflective surfaces or light distribution in th
 Therefore, luminance will vary depending on the angle of view.    
 
 ## Illuminance calculation
+
+The nadir illuminance *E* (unit: lx) of a light of luminous intensity *I* (unit: cd) at a distance *R* (unit: m) can be calculated as follows.     
+
+> *E* = *I* / (*R*^2)
+
+The nadir illuminance is the illuminance at a position straight ahead from the light source at an angle of 0.    
+If luminous intensity is 100 (cd) and distance is 2 (m), nadir illuminance is "100/(2^2) = 25".     
+
+![light_NadirIlluminance.jpg](./images/Lights/light_NadirIlluminance.jpg)     
+
+Illuminance is inversely proportional to the square of the distance.    
+If the distance is 1 meter, then "100/(1^2) = 100," confirming that the closer to the light source, the brighter the light.    
+
+## Conversion of luminous intensity, luminous flux, and illuminance
+
+The following variables are provided.    
+
+|Variable name|Unit|Description|     
+|---|---|---|     
+|*I*|cd, lm/sr|luminous intensity|     
+|*Phi*|lm|luminous flux|     
+|*E*|Lux, lm/m^2|illuminance|     
+|*R*|m|Distance to light source|     
+|*Angle*|degree|Illumination angle (0.0 - 360.0)|     
+
+### Converts from luminous intensity to illuminance
+
+> *E* = *I* / *R*^2
+
+Conditions : For nadir illumination.     
+
+### Converts from luminous intensity to luminous flux
+
+> *Phi* = 2 * Pi * (1.0 - cos(Pi * (*Angle* / 360.0) ) * *I*)    
+
+### Converts from luminous flux to luminous intensity
+
+> *I* = *Phi* / (2 * Pi * (1.0 - cos(Pi * (*Angle* / 360.0))))     
+
+### Converts from luminous flux to illuminance
+
+> *I* = *Phi* / (2 * Pi * (1.0 - cos(Pi * (*Angle* / 360.0))))    
+> *E* = *I* / *R*^2     
+
+
+### Converts from illuminance to luminous intensity
+
+> *I* = *E* * *R*^2    
+
+### Converts from illuminance to luminous flux
+
+> *I* = *E* * *R*^2    
+> *Phi* = 2 * Pi * (1.0 - cos(Pi * (*Angle* / 360.0))) * *I*     
 
