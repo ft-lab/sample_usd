@@ -11,12 +11,12 @@ This section provides the information necessary for lighting calculations.
 
 |Name|Unit|Description|     
 |---|---|---|     
-|Illuminace|Lux, lm/m^2|Incident brightness per unit area receiving light|     
+|Illuminance|Lux, lm/m^2|Incident brightness per unit area receiving light|     
 |Luminous intensity|cd, lm/sr (sr=Steradian)|Amount of light emitted within a unit solid angle|     
 |Luminous flux|lm|Amount of light per unit time; 4Pi*cd for omni-directional as in PointLight|     
 |Luminance|cd/m^2, nit|Brightness per unit area viewed from a certain direction|     
 
-### Illuminace
+### Illuminance
 
 Illuminance is the brightness incident per unit area receiving light.      
 The unit is "lux".     
