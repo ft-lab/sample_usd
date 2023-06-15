@@ -155,10 +155,12 @@ OmniPBR.
 ### Display Name
 
 The specified DisplayName is used as the Prim name in the UI display.     
+DisplayName is not bound by any single-byte alphanumeric character or name prefix constraints.     
 
 |File|Material Type|Description|      
 |---|---|---|      
-|[DisplayName.usda](samples/DisplayName/DisplayName.usda)|---|DisplayName.<br>![PointClouds.jpg](samples/DisplayName/images/DisplayName.png)<br>Supported by USDView.<br>Omniverse can handle this as an option, but this is private.|      
+|[DisplayName.usda](samples/DisplayName/DisplayName.usda)|---|When UTF-8 Japanese is specified as DisplayName.<br>![DisplayName.png](samples/DisplayName/images/DisplayName.png)<br>Supported by USDView.<br>DisplayName in Japanese (UTF-8) in Omniverse can be optionally displayed, but the font must be specified.<br>This will be kept private.|      
+|[DisplayName_english.usda](samples/DisplayName/DisplayName_english.usda)|---|When English is specified as DisplayName.<br>![DisplayName_english.png](samples/DisplayName/images/DisplayName_english.png)<br>In the Stage window, select "Show Display Names" from the Options menu and set it to On.|      
 
 ## Knowledges
 
