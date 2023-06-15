@@ -152,6 +152,14 @@ OmniPBR.
 |---|---|---|      
 |[PointClouds.usda](samples/PointClouds/PointClouds.usda)|---|Point Clouds.<br>![PointClouds.jpg](samples/PointClouds/images/PointClouds.jpg)<br>Supported by USDView.<br>Omniverse RTX does not reflect DisplayColor to the point.|      
 
+### Display Name
+
+The specified DisplayName is used as the Prim name in the UI display.     
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[DisplayName.usda](samples/DisplayName/DisplayName.usda)|---|DisplayName.<br>![PointClouds.jpg](samples/DisplayName/images/DisplayName.png)<br>Supported by USDView.<br>Omniverse can handle this as an option, but this is private.|      
+
 ## Knowledges
 
 * [Color space : Interconversion between sRGB and Linear(raw)](./knowledges/ColorSpaceConversion.md)
