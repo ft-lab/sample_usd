@@ -162,6 +162,14 @@ DisplayName is not bound by any single-byte alphanumeric character or name prefi
 |[DisplayName.usda](samples/DisplayName/DisplayName.usda)|---|When UTF-8 Japanese is specified as DisplayName.<br>![DisplayName.png](samples/DisplayName/images/DisplayName.png)<br>Supported by USDView.<br>DisplayName in Japanese (UTF-8) in Omniverse can be optionally displayed, but the font must be specified.<br>This will be kept private.|      
 |[DisplayName_english.usda](samples/DisplayName/DisplayName_english.usda)|---|When English is specified as DisplayName.<br>![DisplayName_english.png](samples/DisplayName/images/DisplayName_english.png)<br>In the Stage window, select "Show Display Names" from the Options menu and set it to On.|      
 
+### Layer
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[layer1.usda](samples/Layer/layer1.usda)|UsdPreviewSurface|sublayer_sphere.usda of the sublayer from layer1.usda.<br>![layer1.jpg](samples/Layer/images/layer1.jpg)|      
+|[layer1_override.usda](samples/Layer/layer1_override.usda)|UsdPreviewSurface|sublayer_sphere.usda of the sublayer from layer1_override.usda.<br>Also, an override was performed in layer1_override.usda.<br>![layer1_override.jpg](samples/Layer/images/layer1_override.jpg)|      
+
+
 ## Knowledges
 
 * [Color space : Interconversion between sRGB and Linear(raw)](./knowledges/ColorSpaceConversion.md)
