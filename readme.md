@@ -127,6 +127,7 @@ UsdPreviewSurface.
 |[UsdPreviewSurface_cyawan.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_cyawan.usda)|UsdPreviewSurface|PBR Material.<br>Use diffuseColor Map, Normal Map, Roughness Map, Occlusion Map.<br>![UsdPreviewSurface_cyawan.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_cyawan.jpg)<br>In NormnalMap, bias=(-1, -1, -1, 0), scale=(2, 2, 2, 1).|      
 |[UsdPreviewSurface_vertexColor.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_vertexColor.usda)|UsdPreviewSurface|Vertex Color<br>Supported by USDView, Omniverse RTX (USD Composer 2023.1.1 Beta).<br>![UsdPreviewSurface_vertexColor.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_vertexColor.jpg)|      
 |[UsdPreviewSurface_vertexColorFaces.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_vertexColorFaces.usda)|UsdPreviewSurface|Vertex Color<br>Supported by USDView, Omniverse RTX (USD Composer 2023.1.1 Beta).<br>![UsdPreviewSurface_vertexColorFaces.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_vertexColorFaces.jpg)|      
+|[UsdPreviewSurface_emissive_texture.usda](samples/Material/UsdPreviewSurface/UsdPreviewSurface_emissive_texture.usda)|UsdPreviewSurface|Use emissiveColor Texture.<br>![UsdPreviewSurface_emissive_texture.jpg](samples/Material/UsdPreviewSurface/images/UsdPreviewSurface_emissive_texture.jpg)|      
 
 
 OmniPBR.    
@@ -138,6 +139,8 @@ OmniPBR.
 |[OmniPBR_opacity.usda](samples/Material/OmniPBR/OmniPBR_opacity.usda)|OmniPBR|Use Opacity.<br>![OmniPBR_opacity.jpg](samples/Material/OmniPBR/images/OmniPBR_opacity.jpg)<br>Rendered in RTX-Real-Time.<br>Render Settings-Real Time-Ray Tracing-Translucency-Enable Fractional Cutout Opacity : On|      
 |[OmniPBR_opacityThreshold.usda](samples/Material/OmniPBR/OmniPBR_opacityThreshold.usda)|OmniPBR|Use OpacityMap.<br>Specify "mono_alpha" in Opacity Mono Source.<br>![OmniPBR_opacityThreshold.jpg](samples/Material/OmniPBR/images/OmniPBR_opacityThreshold.jpg)|      
 |[OmniPBR_multiply_texture.usda](samples/Material/OmniPBR/OmniPBR_multiply_texture.usda)|OmniPBR|DiffuseColor multiply texture.<br>![OmniPBR_multiply_texture.jpg](samples/Material/OmniPBR/images/OmniPBR_multiply_texture.jpg)|      
+|[OmniPBR_emissive_intensity.usda](samples/Material/OmniPBR/OmniPBR_emissive_intensity.usda)|OmniPBR|Use Emissive. Comparison of emissive_intensity.<br>![OmniPBR_emissive_intensity.jpg](samples/Material/OmniPBR/images/OmniPBR_emissive_intensity.jpg)|      
+|[OmniPBR_emissive_texture.usda](samples/Material/OmniPBR/OmniPBR_emissive_texture.usda)|OmniPBR|Use emissiveColor Texture.<br>![OmniPBR_emissive_texture.jpg](samples/Material/OmniPBR/images/OmniPBR_emissive_texture.jpg)|      
 
 ### DisplayColor      
 |File|Material Type|Description|      
