@@ -175,6 +175,11 @@ DisplayName is not bound by any single-byte alphanumeric character or name prefi
 |[layer1.usda](samples/Layer/layer1.usda)|UsdPreviewSurface|sublayer_sphere.usda of the sublayer from layer1.usda.<br>![layer1.jpg](samples/Layer/images/layer1.jpg)|      
 |[layer1_override.usda](samples/Layer/layer1_override.usda)|UsdPreviewSurface|sublayer_sphere.usda of the sublayer from layer1_override.usda.<br>Also, an override was performed in layer1_override.usda.<br>![layer1_override.jpg](samples/Layer/images/layer1_override.jpg)|      
 
+### Kind
+
+|File|Material Type|Description|      
+|---|---|---|      
+|[kind.usda](samples/kind/kind.usda)|---|Use kind.<br>![kind.jpg](samples/kind/images/kind.jpg)|      
 
 ## Knowledges
 
