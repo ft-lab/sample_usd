@@ -93,6 +93,7 @@ I have decided to create a sample of USD files by function.
 |---|---|---|      
 |[simple_mesh_sphere_reference.usda](samples/reference/simple_mesh_sphere_reference.usda)|OmniPBR|Refer to [simple_mesh_sphere_reference.usda](samples/reference/simple_mesh_sphere_reference.usda) to [simple_mesh_sphere.usda](samples/reference/simple_mesh_sphere.usda)<br>![simple_mesh_sphere_reference](samples/reference/images/simple_mesh_sphere_reference.jpg)|      
 |[simple_mesh_sphere_payload_nest.usda](samples/reference/simple_mesh_sphere_payload_nest.usda)|OmniPBR|Refer with Payload to two levels.<br>[simple_mesh_sphere_payload_nest.usda](samples/reference/simple_mesh_sphere_payload_nest.usda)<br>[simple_mesh_sphere_payload.usda](samples/reference/simple_mesh_sphere_payload.usda)<br>[simple_mesh_sphere.usda](samples/reference/simple_mesh_sphere.usda)<br>![simple_mesh_sphere_payload_nest](samples/reference/images/simple_mesh_sphere_payload.jpg)|      
+|[payload_use_primPath.usda](samples/reference/payload_use_primPath.usda)|OmniPBR|Specify PrimPath when doing Payload.<br>Refer to<br>[payload_use_primPath.usda](samples/reference/payload_use_primPath.usda) to<br>[refObjects.usda](samples/reference/refObjects.usda)<br>![payload_use_primPath](samples/reference/images/payload_use_primPath.png)|      
 
 ### Instance
 
