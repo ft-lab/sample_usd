@@ -14,13 +14,13 @@ def DistantLight "DistantLight" (
     prepend apiSchemas = ["ShapingAPI"]
 )
 {
-    float angle = 1
-    float intensity = 3000
-    float shaping:cone:angle = 180
-    float shaping:cone:softness
-    float shaping:focus
-    color3f shaping:focusTint
-    asset shaping:ies:file
+    float inputs:angle = 1
+    float inputs:intensity = 3000
+    float inputs:shaping:cone:angle = 180
+    float inputs:shaping:cone:softness
+    float inputs:shaping:focus
+    color3f inputs:shaping:focusTint
+    asset inputs:shaping:ies:file
     double3 xformOp:rotateXYZ = (0, 0, 0)
     double3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (0, 0, 0)
@@ -37,13 +37,13 @@ def SphereLight "SphereLight" (
     prepend apiSchemas = ["ShapingAPI"]
 )
 {
-    float intensity = 300000
-    float radius = 10
-    float shaping:cone:angle = 30
-    float shaping:cone:softness = 0.2
-    float shaping:focus
-    color3f shaping:focusTint
-    asset shaping:ies:file
+    float inputs:intensity = 300000
+    float inputs:radius = 10
+    float inputs:shaping:cone:angle = 30
+    float inputs:shaping:cone:softness = 0.2
+    float inputs:shaping:focus
+    color3f inputs:shaping:focusTint
+    asset inputs:shaping:ies:file
     double3 xformOp:rotateXYZ = (0, 0, 0)
     double3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (0, 0, 0)
@@ -149,14 +149,14 @@ def RectLight "RectLight_100x100_Intensity_15000" (
     prepend apiSchemas = ["ShapingAPI"]
 )
 {
-    float height = 100
-    float intensity = 15000
-    float shaping:cone:angle = 180
-    float shaping:cone:softness
-    float shaping:focus
-    color3f shaping:focusTint
-    asset shaping:ies:file
-    float width = 100
+    float inputs:width = 100
+    float inputs:height = 100
+    float inputs:intensity = 15000
+    float inputs:shaping:cone:angle = 180
+    float inputs:shaping:cone:softness
+    float inputs:shaping:focus
+    color3f inputs:shaping:focusTint
+    asset inputs:shaping:ies:file
     double3 xformOp:rotateXYZ = (-90, 0, 0)
     double3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (-400, 100, 0)
@@ -166,6 +166,58 @@ def RectLight "RectLight_100x100_Intensity_15000" (
 The width and height specify the size of the RectLight.     
 The area can be calculated by width * height.     
 The larger the area, the greater the illuminance, even if the intensity is the same.    
+
+The following usda adjusted the overall illumination to be the same for RectLight with different width x height.      
+
+[rect_light.usda](../samples/light/rect_light.usda)     
+```
+def RectLight "RectLight_100x100_Intensity_15000" (
+    prepend apiSchemas = ["ShapingAPI"]
+)
+{
+    float inputs:width = 100
+    float inputs:height = 100
+    float inputs:intensity = 15000
+    float inputs:shaping:cone:angle = 180
+    float inputs:shaping:cone:softness
+    float inputs:shaping:focus
+    color3f inputs:shaping:focusTint
+    asset inputs:shaping:ies:file
+    double3 xformOp:rotateXYZ = (-90, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (-400, 100, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+def RectLight "RectLight_50x50_Intensity_60000" (
+    prepend apiSchemas = ["ShapingAPI"]
+)
+{
+    float inputs:width = 50
+    float inputs:height = 50
+    float inputs:intensity = 60000
+    float inputs:shaping:cone:angle = 180
+    float inputs:shaping:cone:softness
+    float inputs:shaping:focus
+    color3f inputs:shaping:focusTint
+    asset inputs:shaping:ies:file
+    double3 xformOp:rotateXYZ = (-90, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (400, 99.99999999999737, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+```
+![rect_light.jpg](../samples/light/images/rect_light.jpg)      
+
+"RectLight_100x100_Intensity_15000" is the size of RectLight in 100 x 100(cm).     
+intensity = 15000.      
+
+For a 50 x 50(cm) RectLight, given the same brightness conditions, itensity can be calculated as follows.     
+```
+15000 * ((100 * 100) / (50 * 50)) = 60000
+```
+Intensity can be calculated relative to the inverse proportion of area.    
+
 
 ## SphereLight Intensity
 
