@@ -73,13 +73,13 @@ def Xform "World"
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float angle = 1
-        float intensity = 3000
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
+        float inputs:angle = 1
+        float inputs:intensity = 3000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
         double3 xformOp:rotateXYZ = (315, 0, 0)
         double3 xformOp:scale = (1, 1, 1)
         double3 xformOp:translate = (0, 0, 0)
@@ -90,14 +90,14 @@ def Xform "World"
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float intensity = 1000
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
-        asset texture:file = @./forest_road_1024x512.exr@
-        token texture:format = "latlong"
+        float inputs:intensity = 1000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        asset inputs:texture:file = @./forest_road_1024x512.exr@
+        token inputs:texture:format = "latlong"
         token visibility = "inherited"
         double3 xformOp:rotateXYZ = (270, 0, 0)
         double3 xformOp:scale = (1, 1, 1)
@@ -105,7 +105,9 @@ def Xform "World"
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
     }
 
-    def Mesh "Plane"
+    def Mesh "Plane" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
     {
         int[] faceVertexCounts = [4]
         int[] faceVertexIndices = [0, 2, 3, 1]

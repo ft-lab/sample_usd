@@ -67,8 +67,11 @@
 
 def Xform "World"
 {
-    def Mesh "Plane"
+    def Mesh "Plane" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
     {
+        float3[] extent = [(-50, 0, -50), (50, 0, 50)]
         int[] faceVertexCounts = [4]
         int[] faceVertexIndices = [0, 2, 3, 1]
         rel material:binding = </World/Looks/OmniPBR> (
@@ -123,13 +126,13 @@ def Xform "World"
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float intensity = 30000
-        float radius = 20
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
+        float inputs:intensity = 30000
+        float inputs:radius = 20
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
         double3 xformOp:rotateXYZ = (0, 0, 0)
         double3 xformOp:scale = (0.5, 0.5, 0.5)
         double3 xformOp:translate = (-400, 73.13557129930896, 0)
@@ -140,13 +143,13 @@ def Xform "World"
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float intensity = 4800
-        float radius = 50
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
+        float inputs:intensity = 4800
+        float inputs:radius = 50
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
         double3 xformOp:rotateXYZ = (0, 0, 0)
         double3 xformOp:scale = (0.5, 0.5, 0.5)
         double3 xformOp:translate = (0, 73.13557129930896, 0)
@@ -157,13 +160,13 @@ def Xform "World"
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float intensity = 1200
-        float radius = 100
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
+        float inputs:intensity = 1200
+        float inputs:radius = 100
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
         double3 xformOp:rotateXYZ = (0, 0, 0)
         double3 xformOp:scale = (0.5, 0.5, 0.5)
         double3 xformOp:translate = (400, 73.13557129930896, 0)

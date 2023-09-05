@@ -67,8 +67,11 @@
 
 def Xform "World"
 {
-    def Mesh "Plane"
+    def Mesh "Plane" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
     {
+        float3[] extent = [(-50, 0, -50), (50, 0, 50)]
         int[] faceVertexCounts = [4]
         int[] faceVertexIndices = [0, 2, 3, 1]
         rel material:binding = </World/Looks/OmniPBR> (
@@ -123,14 +126,14 @@ def Xform "World"
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float height = 100
-        float intensity = 15000
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
-        float width = 100
+        float inputs:height = 100
+        float inputs:intensity = 15000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        float inputs:width = 100
         double3 xformOp:rotateXYZ = (-90, 0, 0)
         double3 xformOp:scale = (1, 1, 1)
         double3 xformOp:translate = (-400, 100, 0)
@@ -141,14 +144,14 @@ def Xform "World"
         prepend apiSchemas = ["ShapingAPI"]
     )
     {
-        float height = 50
-        float intensity = 60000
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
-        float width = 50
+        float inputs:height = 50
+        float inputs:intensity = 60000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        float inputs:width = 50
         double3 xformOp:rotateXYZ = (-90, 0, 0)
         double3 xformOp:scale = (1, 1, 1)
         double3 xformOp:translate = (400, 99.99999999999737, 0)
